@@ -24,7 +24,7 @@ class Book {
   }
 
   getWords() {
-    // TODO
+    return this.#words;
   }
 
   setTitle(title) {
@@ -40,36 +40,49 @@ class Book {
 
   setAuthor(author) {
     if (typeof (author) !== 'string') {
-      throw new Error()
+      throw new Error();
     }
     author = author.trim();
     if (author.length === 0) {
-      author = "Anónimo";
+      author = 'Anónimo';
     }
     this.#author = author;
   }
 
   setPages(pages) {
     if (typeof (pages) !== 'number' || isNaN(pages)) {
-      throw new Error()
+      throw new Error();
     }
     if (pages < 1) {
-      throw new Error()
+      throw new Error();
     }
     pages = Math.trunc(pages);
     this.#pages = pages;
   }
 
-  setWords() {
-    // TODO
+  setWords(wordCount) {
+    if (!Number.isInteger(wordCount)) {
+      throw new Error('La cantidad de palabras no es un numero.');
+    }
+
+    if (wordCount < 1) {
+      throw new Error('La cantidad de palabras debe ser mayor a 0.');
+    }
+    
+    this.#words = wordCount;
   }
 
   wordsPerPage() {
-    // TODO
+    if (!Number.isInteger(this.#words)) {
+      throw new Error('La cantidad de palabras no es un número.');
+    }
+
+    return Number(this.#words / this.#pages);
   }
 
   toString() {
-    return `Título: ${this.#title} Autor: ${this.#author} Páginas: ${this.#pages}`;
+    const wordsStr = `Palabras: ${this.#words?this.#words:'N/A'}`;
+    return `Título: ${this.#title} Autor: ${this.#author} Páginas: ${this.#pages} ${wordsStr}`;
   }
 }
 

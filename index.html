@@ -32,9 +32,16 @@
             <div class="tab-pane fade show active" id="pills-library" role="tabpanel"
                 aria-labelledby="pills-library-tab" tabindex="0">
                 <form action="">
-                    <label for="inp-total-books">Total de libros:
-                        <input id="inp-total-books" name="inp-total-books" type="text" readonly>
-                    </label>
+                    <div class="form-row mb-3">
+                        <label for="inp-total-books">Total de libros:
+                            <input id="inp-total-books" name="inp-total-books" type="text" readonly>
+                        </label>
+                    </div>
+                    <div class="form-row mb-3">
+                        <label for="inp-total-palabras">Total de palabras:
+                            <input id="inp-total-palabras" name="inp-total-palabras" type="text" readonly>
+                        </label>
+                    </div>
                 </form>
             </div>
             <div class="tab-pane fade" id="pills-newbook" role="tabpanel" aria-labelledby="pills-newbook-tab"
@@ -53,6 +60,11 @@
                     <div class="form-row mb-3">
                         <label for="inp-pages">Páginas:
                             <input id="inp-pages" name="inp-pages" type="number" min="1" required>
+                        </label>
+                    </div>
+                    <div class="form-row mb-3">
+                        <label for="inp-palabras">Palabras:
+                            <input id="inp-palabras" name="inp-palabras" type="number" min="1">
                         </label>
                     </div>
                     <div class="d-none mb-3" id="add-book-error">
